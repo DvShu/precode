@@ -1,0 +1,66 @@
+/**
+    前端代码修饰库样式表
+*/
+/* 需要修饰的代码区域样式 */
+.precode_code {
+    width: 500px;
+}
+/* 代码区域标题栏样式 */
+.precode_code .code_title_group{
+    background: grey;
+    padding: 5px 10px;
+}
+/* 代码区域标题样式 */
+.precode_code .code_title_group .code_title{
+    font-weight: bold;
+    font-size: 20px;
+}
+/* 代码区域标题栏,版本号样式 */
+.precode_code .code_title_group .code_component{
+    float: right;
+}
+/* 代码区域样式 */
+.precode_code .code_box{
+    /* 内容部分，水平排列,左边显示行号,右边显示代码片段 */
+    /* Firefox */
+    display:-moz-box;
+    -moz-box-orient:horizontal;
+
+    /* Safari、Opera 以及 Chrome */
+    display:-webkit-box;
+    -webkit-box-orient:horizontal;
+    background: gainsboro;
+    overflow: hidden;
+}
+/* 显示行号的样式 */
+.precode_code .code_box .conde_line_number{
+    width: 30px;
+    list-style: none; /* 去除小圆点 */
+    /* 去除默认边距 */
+    margin: 0px;
+    padding: 0px;
+    color: aqua;
+}
+/* 行号li */
+.precode_code .code_box .conde_line_number li{
+    text-align: center;
+    line-height: 25px;
+    background: darkcyan;
+}
+/* 代码内容 */
+.precode_code .code_box .code_content{
+    padding-left: 5px;
+    padding-right: 5px;
+    /* overflow-x: auto; */
+}
+/* 代码内容 */
+.precode_code .code_box .code_content code {
+    line-height: 25px;
+    font-size: 15px;
+
+}
+.precode_code .code_box .code_content pre {
+    line-height: 25px;
+    font-size: 15px;
+    margin: 0px;
+}

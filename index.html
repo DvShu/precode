@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>precode网页代码修饰库的使用</title>
+    <link rel="stylesheet" href="style/precode.css">
+    <!-- 引入jquery -->
+    <script src="http://cdn.bootcss.com/jquery/3.0.0-alpha1/jquery.min.js"></script>
+    <!-- 引入precode插件 -->
+    <script src="js/precode.js"></script>
+    <script>
+        $(function () {
+            /* code */
+            $("#code_content").precode({
+                "height" : "100px", // 代码区域高度,设置了固定高度后,如果代码超出高度,会显示滚动条
+                "title" : "HTML", // 标题栏
+                "isShowComponent" : false // 是否显示组件名称
+            });
+            $("#code_content1").precode(); // 使用默认配置
+            /* pre */
+            $("#pre_content").precode();
+            $("#pre_content1").precode();
+        });
+    </script>
+</head>
+<body>
+    <p>以下是需要修饰的代码片段<p>
+    <br>以下是最终的代码结构
+    <div class="precode_code">
+        <!-- 标题栏 -->
+        <div class="code_title_group">
+            <!-- 显示文本标题 -->
+            <span class="code_title">HTML</span>
+            <!-- 显示插件版本控制 -->
+            <span class="code_component">precode v1.1</span>
+        </div>
+        <!-- 内容部分 -->
+        <div class="code_box">
+            <ul class="conde_line_number">
+                <li>1</li>
+                <li>2</li>
+                <li>3</li>
+                <li>4</li>
+                <li>5</li>
+                <li>6</li>
+            </ul>
+            <!-- 代码内容部分 -->
+            <div class="code_content">
+                <code>
+                    &lt;html&gt;<br>&nbsp;&lt;title&gt;基本的HTML网页结构 &lt;/title&gt;
+                    <br>&nbsp;&lt;body&gt;<br>&nbsp;&nbsp;&lt;h3&gt;Hello World!!!&lt;/h3&gt;
+                    <br>&nbsp;&lt;/body&gt;<br>&lt;/html&gt;
+                </code>
+            </div>
+
+        </div>
+    </div>
+    <br> 以下是插入基本HTML代码后的效果图
+    <code id="code_content">
+        &lt;html&gt;<br>&nbsp;&lt;title&gt;基本的HTML网页结构&lt;/title&gt;
+        <br>&nbsp;&lt;body&gt;<br>&nbsp;&nbsp;&lt;h3&gt;Hello World!!!&lt;/h3&gt;
+        <br>&nbsp;&lt;/body&gt;<br>&lt;/html&gt;
+    </code>
+    <br> 以下是插入JS代码后的效果图
+    <code id="code_content1">
+        // 获取换行节点的数量<br>var brLength = this.$element.find("br").length;
+        <br><p>var lineElem = "";</p>
+        <br>// 如果有2个换行节点，代表内容是3行,拼接行号
+        <br>for(var i = 0; i <= brLength; i++){
+        <br>&nbsp;lineElem = lineElem+"&lt;li&gt;" + (i + 1) + "&lt;/li&gt;";
+        <br>}
+    </code>
+
+    <!-- 以下是pre标签部分 -->
+    <h3>以下是pre标签</h3>
+    <pre id="pre_content">&lt;html&gt;
+            &lt;title&gt;基本的HTML网页结构&lt;/title&gt;
+            &lt;body&gt;
+               &lt;h3&gt;Hello World!!!&lt;/h3&gt;
+                <p>d</p>
+            &lt;/body&gt;
+        &lt;/html&gt;
+    </pre>
+    <pre id="pre_content1">
+        // 获取换行节点的数量
+        var brLength = this.$element.find("br").length;
+        var lineElem = "";
+        // 如果有2个换行节点，代表内容是3行,拼接行号
+        for(var i = 0; i <= brLength; i++){
+            lineElem = lineElem+"&lt;li&gt;" + (i + 1) + "&lt;/li&gt;";
+        }
+    </pre>
+</body>
+</html>

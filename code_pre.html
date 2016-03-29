@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>代码生成工具</title>
+    <style>
+        textarea {
+            width: 500px;
+            min-height: 150px;
+        }
+        div{
+            width: 500px;
+            background: royalblue;
+            color: aqua;
+        }
+    </style>
+    <!-- 引入jquery -->
+    <script src="http://cdn.bootcss.com/jquery/3.0.0-alpha1/jquery.min.js"></script>
+    <script>
+        // 预览效果
+        function previewCode(){
+            // 获取多行文本域中的内容
+            var code = $("#code_editor").val();
+            code =code.replace(/</g, "&lt;"); // 替换其中的 < 为&lt;
+            code = code.replace(/>/g, "&gt;"); // 替换其中的 > 为&gt;
+            code = code.replace(/[\n\r]/g,"<br>") //替换回车符为换行标签
+            code = code.replace(/(\{TAB\})/g, "&nbsp;"); // 替换指定的制表符为空格标签
+            $("#code_previewer").html(code);
+            $("#code_show").text(code);
+        }
+    </script>
+</head>
+<body>
+    <!-- 代码编辑区域 -->
+    <textarea id="code_editor"></textarea><span>编辑框内用{TAB}代替实际的空格效果</span><br>
+    <br><span>预览效果</span><br>
+    <!-- 代码预览区域 -->
+    <div><code id="code_previewer"></code></div>
+    <br><br>
+    <button onclick="previewCode();">预览</button><br><br>
+    <span id="code_show"></span>
+</body>
+</html>

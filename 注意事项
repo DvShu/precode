@@ -1,0 +1,48 @@
+下面对于<pre></pre>标签的内容行数做一下简单的说明：
+    1.如果内容的首尾和pre标签是紧密连接在一起的,则内容代码的数量即为 行数
+    <pre>&lt;html&gt;
+            &lt;title&gt;基本的HTML网页结构&lt;/title&gt;
+            &lt;body&gt;
+                &lt;h3&gt;Hello World!!!&lt;/h3&gt;
+                <p>d</p>
+            &lt;/body&gt;
+        &lt;/html&gt;</pre>
+    以上代码的行数即为：7 行
+
+    2.如果内容的首尾和pre标签的标签不相连(单起行)，则内容代码的数量 + 1即为行数
+    <pre id="pre_content1">
+        // 获取换行节点的数量
+        var brLength = this.$element.find("br").length;
+        var lineElem = "";
+        // 如果有2个换行节点，代表内容是3行,拼接行号
+        for(var i = 0; i <= brLength; i++){
+            lineElem = lineElem+"&lt;li&gt;" + (i + 1) + "&lt;/li&gt;";
+        }
+    </pre>
+    以上代码的行数即为：8 行
+
+    3.内容开始和pre开始标签相连，内容结尾和pre结束标签不相连, 则内容代码的数量 + 1 即为 行数
+    <pre>&lt;html&gt;
+                &lt;title&gt;基本的HTML网页结构&lt;/title&gt;
+                &lt;body&gt;
+                    &lt;h3&gt;Hello World!!!&lt;/h3&gt;
+                    <p>d</p>
+                &lt;/body&gt;
+            &lt;/html&gt;
+    </pre>
+    以上代码的行数为： 8 行
+
+    4.如果开始不相连，结束相连，则内容代码数量为代码数量：
+    <pre>
+    &lt;html&gt;
+                    &lt;title&gt;基本的HTML网页结构&lt;/title&gt;
+                    &lt;body&gt;
+                        &lt;h3&gt;Hello World!!!&lt;/h3&gt;
+                        <p>d</p>
+                    &lt;/body&gt;
+                &lt;/html&gt;</pre>
+    以上代码的行数为： 7 行
+
+    总结：如果内容结尾和pre标签的结束标签相连，则代码的行数就是内容的行数，否则就是代码的行数 + 1
+
+    在使用的过程中特别要注意：内容中不能有<p>标签，就是有<p>标签也是不会起作用的
